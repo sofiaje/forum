@@ -23,7 +23,8 @@ a:hover {
   color: #107389;
 }
 header {
-  border-bottom: 1px solid;
+  box-shadow: 0 5px 10px rgb(46, 93, 113);
+
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -48,7 +49,28 @@ h1 {
   font-size: 2em;
   line-height: 1.1;
 }
+.bold {
+  font-weight: 700;
+}
+.post {
+  border-top: 1px solid rgb(46, 93, 113);
+  padding: 1rem 0;
+}
+.posts {
+  border-top: 1px solid rgb(46, 93, 113);
 
+  margin: 0.5rem 0;
+  padding: 1rem;
+  cursor: pointer;
+  display:block;
+}
+.posts:hover {
+  border-color: #1692ae;
+}
+.comment {
+  border-top: 1px solid rgb(46, 93, 113);
+  padding: 0.5rem 0;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -68,6 +90,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -78,5 +101,19 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+
+  .post {
+    border: 1px solid rgb(216, 216, 216);
+  }
+  .posts {
+    border: 1px solid rgb(216, 216, 216);
+  }
+  .comment {
+    border-top: 1px solid rgb(213, 213, 213);
+  }
+
+  header {
+  box-shadow: 0 5px 10px rgb(211, 211, 211);
   }
 }

@@ -3,12 +3,11 @@ import Header from "../components/Header";
 
 const Root = () => {
     return ( 
-        <div>
+        <div className="pageWrapper">
             <Header />
             <main>
                 <Outlet />
             </main>
-            
         </div>
      );
 }
