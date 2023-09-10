@@ -10,13 +10,14 @@ const Post = () => {
 
     return (
         <div>
-            <NavLink to="/"> - Back to posts</NavLink>
 
             <div className="postDetails">
                 <h2>{toUpperCase(title)}</h2>
                 <p>{toUpperCase(body)}</p>
                 <p>Blog author: <Link to={`/user/${userData.id}`}>{userData.username}</Link></p>
             </div><br /><br />
+            <NavLink to="/"> Back to posts</NavLink>
+
             <div>
                 <h2>Comments</h2>
                 {comments.map(comment => (

@@ -54,7 +54,9 @@ h1 {
 }
 .post {
   border-top: 1px solid rgb(46, 93, 113);
-  padding: 1rem 0;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
 }
 .posts {
   border-top: 1px solid rgb(46, 93, 113);

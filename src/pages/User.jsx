@@ -1,4 +1,4 @@
-import { useLoaderData, useParams  } from "react-router-dom";
+import { useLoaderData, useParams, NavLink  } from "react-router-dom";
 import { } from "react-router-dom";
 
 
@@ -14,6 +14,9 @@ const User = () => {
             <p><span className="bold">City:</span> {address?.city}</p>
             <p><span className="bold">Company:</span> {company?.name}</p>
 
+        <br/>
+        <NavLink to="/"> Back to posts</NavLink>
+            
         </div>
      );
 }
