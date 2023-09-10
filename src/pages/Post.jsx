@@ -1,33 +1,44 @@
-import { NavLink, useLoaderData, useNavigate, Link } from "react-router-dom";
+import { NavLink, useLoaderData, Link } from "react-router-dom";
 import { toUpperCase } from "../utility/toUpperCase";
 
 const Post = () => {
-    const navigate = useNavigate()
 
     const { userData, postData, comments } = useLoaderData()
-    const { title, body } = postData
-    console.log("kommentarer", comments)
 
+
+    const Post = ({ postData, userData }) => {
+        return (
+        <div className="postDetails">
+                <h2>{toUpperCase(postData.title)}</h2>
+                <p>{toUpperCase(postData.body)}</p>
+                <p>Blog author: <Link to={`/user/${userData.id}`}>{userData.username}</Link></p>
+        </div>
+        )
+    }
+
+    const Comment = ({comment}) => {
+        return (
+            <div className="comment">
+               <h3>{toUpperCase(comment.name)}</h3>
+                <p>{comment.email}</p>
+                <p>{toUpperCase(comment.body)}</p>
+            </div>
+        )
+    }
+
+  
+    
     return (
         <div>
-
-            <div className="postDetails">
-                <h2>{toUpperCase(title)}</h2>
-                <p>{toUpperCase(body)}</p>
-                <p>Blog author: <Link to={`/user/${userData.id}`}>{userData.username}</Link></p>
-            </div><br /><br />
             <NavLink to="/"> Back to posts</NavLink>
 
-            <div>
-                <h2>Comments</h2>
-                {comments.map(comment => (
-                    <div className="comment">
-                        <h3>{toUpperCase(comment.name)}</h3>
-                        <p>{comment.email}</p>
-                        <p>{toUpperCase(comment.body)}</p>
-                    </div>
-                ))}
-            </div>
+            <Post postData={postData} userData={userData} key={postData.id} />
+
+            <h2>Comments</h2>
+            {comments.map(comment => (
+                <Comment comment={comment} key={comment.id}/>
+            ))}
+            
         </div>
     )
 }

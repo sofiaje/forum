@@ -1,18 +1,16 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { toUpperCase } from "../utility/toUpperCase";
 
 const Home = () => {
     const posts = useLoaderData()
-    const navigate = useNavigate()
-
     return ( 
         <div>
-            <h2>Blog posts</h2>
+            <h2>Threads</h2>
             {posts?.map(post => {
                 let title = toUpperCase(post.title)
 
                 return (
-                    <div className="post">
+                    <div className="post" key={post.id}>
                         <Link to={`/post/${post.id}`}>{title}</Link>
                     </div>
                 )}

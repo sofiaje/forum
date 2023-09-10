@@ -1,22 +1,24 @@
-import { useLoaderData, useParams, NavLink  } from "react-router-dom";
-import { } from "react-router-dom";
-
+import { useLoaderData, useNavigate  } from "react-router-dom";
 
 
 const User = () => {
-    let {username, email, address, company} = useLoaderData()
-    // console.log(data)
+    let { username, email, address, company } = useLoaderData()
+    
+    const navigate = useNavigate();
+	const goBack = () => {
+		navigate(-1);
+    }
+    
     return ( 
         <div>
+            <a onClick={goBack}> Back to post</a>
+
             <h2>User details for {username}</h2>
             <p><span className="bold">Name:</span> {username}</p>
             <p><span className="bold">Email:</span> {email}</p>
             <p><span className="bold">City:</span> {address?.city}</p>
             <p><span className="bold">Company:</span> {company?.name}</p>
 
-        <br/>
-        <NavLink to="/"> Back to posts</NavLink>
-            
         </div>
      );
 }
